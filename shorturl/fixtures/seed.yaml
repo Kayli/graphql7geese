@@ -1,0 +1,12 @@
+- model: shorturl.UrlEntry
+  pk: 1
+  fields:
+    short_id: A7dw
+    value: https://www.google.com/search?sxsrf=ACYBGNR0TocQ8E8uxrrHXUAzWOKDBo9zCQ%3A1569100898269&source=hp&ei=YpSGXZ7aDeWz0PEP3_OJ6AM&q=django+seed+data
+    created_on: 2019-09-25 14:30:59
+- model: shorturl.UrlEntry
+  pk: 2
+  fields:
+    short_id: sdfsdf
+    value: https://ya.ru
+    created_on: 2019-09-25 14:32:00
