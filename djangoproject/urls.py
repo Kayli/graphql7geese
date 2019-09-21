@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from graphene_django.views import GraphQLView
+from shorturl import views
+from shorturl.schema import schema
+
 
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     path('admin/', admin.site.urls),
+    path('<short_id>', views.redirect_url, name='redirect_url')
 ]
