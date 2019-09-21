@@ -3,5 +3,7 @@
 - pip
 - virtualenv
 # Initialization
-- run ./venv-init.sh script. This will initialize virtual environment and install required dependencies for the project.
+- run ./venv-init.sh script. This will initialize virtual environment and pip install required dependencies from requirements.txt needed for the project.
+# Re-seeding data
+- $ python manage.py loaddata seed.yaml
 
