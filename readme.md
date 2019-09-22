@@ -6,7 +6,7 @@
 # Initialization
 - run python virtual environment initialization script:
 ```shell
-$ ./create-virtualenv.sh
+$ source ./create-virtualenv.sh
 ```
 This will initialize virtual environment and pip install required dependencies from requirements.txt needed for the project.
 
@@ -15,6 +15,12 @@ This will initialize virtual environment and pip install required dependencies f
 $ .env/bin/activate
 ```
 This will make sure that your application is using correct version of python and all required dependencies.
+
+# Apply migrations
+In order for the app to have the latest schema for the data, don't forget to apply migrations using the following command:
+```shell
+$ python manage.py migrate
+```
 
 # Running tests
 ```shell
@@ -31,7 +37,8 @@ $ python manage.py runserver
 $ python manage.py loaddata seed.yaml
 ```
 
-# Generating and running migrations
+# Generating new migration files
+In case you've changed your schema recently, you should probably generate new migrations for the data
 ```shell
 $ python manage.py makemigrations
 $ python manage.py migrate
