@@ -34,12 +34,22 @@ class AddUrlEntry(graphene.Mutation):
 
     def mutate(self, info, value):
         short_id = AddUrlEntry.generateRandomStringWithDigits()
-        entry = UrlEntryNode(
+
+        # create new db record
+        entry = UrlEntry(
             short_id=short_id,
             value=value,
             created_on=datetime.now()
         )
-        return AddUrlEntry(entry)
+        entry.save()
+
+        # wrap in a GraphQL node
+        node = UrlEntryNode(
+            short_id=entry.short_id,
+            value=entry.value,
+            created_on=entry.created_on
+        )
+        return AddUrlEntry(node)
 
     def generateRandomStringWithDigits(stringLength=6):
         """Generate a random string of letters and digits """
