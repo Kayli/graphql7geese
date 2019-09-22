@@ -31,3 +31,10 @@ $ python manage.py runserver
 $ python manage.py loaddata seed.yaml
 ```
 
+# Generating and running migrations
+```shell
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+
