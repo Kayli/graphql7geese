@@ -4,7 +4,17 @@
 - virtualenv
 
 # Initialization
-- run ./venv-init.sh script. This will initialize virtual environment and pip install required dependencies from requirements.txt needed for the project.
+- run environment initialization script:
+```shell
+$ ./venv-init.sh
+```
+This will initialize virtual environment and pip install required dependencies from requirements.txt needed for the project.
+
+- activate virtual environment by running the following script: 
+```shell
+$ .env/bin/activate
+```
+This will make sure that your application is using correct version of python and all required dependencies.
 
 # Running tests
 ```shell
