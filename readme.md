@@ -6,7 +6,7 @@
 # Initialization
 - run python virtual environment initialization script:
 ```shell
-$ ./create-virtualenv.sh
+$ source ./create-virtualenv.sh
 ```
 This will initialize virtual environment and pip install required dependencies from requirements.txt needed for the project.
 
