@@ -13,6 +13,7 @@ class UrlEntryNode(DjangoObjectType):
 
 
 class Query(graphene.ObjectType):
+    '''Defines GraphQL queries'''
     url = graphene.Field(UrlEntryNode, short_id=graphene.String())
 
     def resolve_url(self, info, short_id):
@@ -26,7 +27,7 @@ class Query(graphene.ObjectType):
 
 
 class AddUrlEntry(graphene.Mutation):
-
+    '''GraphQL mutation '''
     class Arguments:
         value = graphene.String()
 
@@ -44,12 +45,12 @@ class AddUrlEntry(graphene.Mutation):
         entry.save()
 
         # wrap in a GraphQL node
-        node = UrlEntryNode(
+        url_entry = UrlEntryNode(
             short_id=entry.short_id,
             value=entry.value,
             created_on=entry.created_on
         )
-        return AddUrlEntry(node)
+        return AddUrlEntry(url_entry=url_entry)
 
     def generateRandomStringWithDigits(stringLength=6):
         """Generate a random string of letters and digits """
@@ -58,6 +59,7 @@ class AddUrlEntry(graphene.Mutation):
 
 
 class Mutations(graphene.ObjectType):
+    '''Defines GraphQL mutations'''
     add_url_entry = AddUrlEntry.Field()
 
 
